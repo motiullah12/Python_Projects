@@ -5,11 +5,20 @@ print("===== PASSWORD GENERATOR =====")
 
 length = int(input("Enter password length: "))
 
-characters = string.ascii_letters + string.digits + "!@#$%^&*"
+numbers = input("Include numbers? (y/n): ")
+symbols = input("Include symbols? (y/n): ")
+
+characters = string.ascii_letters 
+
+if numbers.lower() == "y":
+    characters += string.digits
+
+if symbols.lower() == "y":
+    characters += "!@#$%^&*"
 
 password = ""
 
 for i in range(length):
     password += random.choice(characters)
 
-print("\nYour Password:", password)
+print("\nGenerated Password:", password)
